@@ -21,6 +21,8 @@
 
 using namespace std;
 
+// note: our data structure / priority queue should be delcared in the header file?
+
 // ---------------------
 // Function Declarations
 // ---------------------
