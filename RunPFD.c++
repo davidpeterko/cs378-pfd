@@ -17,6 +17,9 @@
 #include <sstream>  // istringstream
 #include <string>   // getline, string
 #include <utility>  // make_pair, pair
+#include <functional>
+#include <queue>
+#include <vector>
 
 #include "PFD.h"
 
@@ -27,7 +30,7 @@
 int main(){
 	using namespace std;
 
-	//run harness code
+	pfd_solve(cin, cout);
 
 	return 0;
 }
