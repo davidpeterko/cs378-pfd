@@ -26,49 +26,19 @@
 
 using namespace std;
 
-<<<<<<< HEAD
 // note: our data structure / priority queue should be delcared in the header file?
-=======
 //use adjacency list-> list of unordered lsit
 
->>>>>>> master
+
 
 // ---------------------
 // Function Declarations
 // ---------------------
 
-<<<<<<< HEAD
+
 // ----
 // pfd_read
 // ----
-
-void pfd_read(istream& input, vector<node>& nodes){
-
-	//replace vector with our data structure?
-	
-	int tasks, rules, edges;
-	input >> tasks;
-	input >> rules;
-
-	assert(tasks > 0);
-
-	//Here we should have the 2 tasks and rules already put into our variables
-	
-	for(int i = 0; i < rules; i++){
-
-		//iterate through the rules and put the rules into our data structure
-		//the first input >> from this next line should be the identity of the task, then the next input >> should be the number of preceeding identities (which should be the number of edges)	
-
-	}
-
-	//Here the rules should be put into the data structure
-
-}
-=======
-// --------
-// pfd_read
-// --------
->>>>>>> master
 
 
 // ---------
@@ -91,8 +61,6 @@ template<typename T> void pfd_print(T& q){
 // ---------
 void pfd_solve(istream& in, ostream& out){
 
-	priority_queue <int, vector<int>, greater<int>> pq;
-
 	//tasks and rules
 	int num_tasks;
 	int num_rules;
@@ -103,61 +71,65 @@ void pfd_solve(istream& in, ostream& out){
 	in >> num_rules;
 	assert(num_rules > 0);
 
-	//now we have # of tasks and rules
+	//cout << "This is the number of tasks and the rules: " << num_tasks << num_rules << endl;
 
-	//feed in the next lines pfd_read
+	vector<vector<int>> amatrix(num_tasks, vector<int>(num_tasks)); 
+	priority_queue <int, vector<int>, greater<int>> pq;
 
+
+	//fill the matrix with 0's
+	for(int a = 0; a < num_tasks; ++a){
+		for(int b = 0; b < num_tasks; ++b){
+			amatrix[a][b] = 0;
+		}
+	}
+
+	/** THIS BLOCK SETS THE 1'S IN MATRIX **/
 	for(int i = 0; i < num_rules; ++i){
 		
 		int task_name;
-
 		in >> task_name;
-
 		assert(task_name > 0);
 
 		int num_pred;
-
 		in >> num_pred;
-
 		assert(num_pred > 0);
 
-		//this for loop iterates through all the predecessors (all numbers after the value 'K')
+		//cout << "this is the task for this line: " << task_name << endl;
+
+		//cout << "this is the number of predecessors for this task: " << num_pred << endl;
+
+
 		for(int j = 0; j < num_pred; ++j){
 
-			//construct graph using these next rules
+			int temp_pred;
+			in >> temp_pred;
 
-			//goes through the process of eliminating nodes with no predecessor
+			//cout << "The next predecessor: " << temp_pred << endl;
+			amatrix[task_name-1][temp_pred-1] = 1;
+		}
+	}
+	
 
-			//then one by one construct the output
+	/** GO THRU MATRIX, SCAN POP CLEAR **/
 
-			//should the output be in a PQ? then call pfd_print?
 
+
+
+
+	//print matrix
+	//when you are reading the matrix, dont froget to add one to the interation to get the correct task_name, i.e. int i = 0 is actually the task 0 + 1 = 1
+	for(int c = 0; c < num_tasks; ++c){
+
+		for(int d = 0; d < num_tasks; ++d){
+
+			cout << '(' << amatrix[c][d] << ")";
 
 		}
-
+		cout<< endl;
 	}
 	
-	
 
-	//works
-	pfd_print(pq);
-
-<<<<<<< HEAD
-void pfd_print(ostream& output, priority_queue<node> nodes){
-	assert(nodes.size() > 0);
-	int front;
-
-	//iterate through the nodes and output
-	while(!nodes.empty()){
-		//pop off the PQ and output
-=======
 }
->>>>>>> master
-
-	}
-	
-	output << endl;
-}
-
 
 
