@@ -25,19 +25,7 @@ using namespace std;
 // Function Declarations
 // ---------------------
 
-// --------
-// pfd_read
-// --------
-
-
-
-// ---------
-// pfd_print
-// ---------
-template<typename T> void pfd_print(T& q);
-
-
-// ---------
-// pfd_solve
-// ---------
+vector<vector<int> > matrix_fill_zero(int numoftasks, vector<vector<int> > matrix);
+void print_matrix(ostream& w, vector<vector<int> > matrix);
+void print_queue(ostream& w, priority_queue<int, vector<int>, greater<int> > pq);
 void pfd_solve(istream& in, ostream& out);

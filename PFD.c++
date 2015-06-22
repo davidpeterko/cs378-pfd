@@ -34,27 +34,39 @@ using namespace std;
 // ----------------
 // matrix_fill_zero
 // ----------------
-void matrix_fill_zero(int numoftasks, vector<vector<int> > matrix){
+vector<vector<int> > matrix_fill_zero(int numoftasks, vector<vector<int> > matrix){
 	for(int a = 0; a < numoftasks; ++a){
 		for(int b = 0; b < numoftasks; ++b){
 			matrix[a][b] = 0;
 		}
 	}
+
+	return matrix;
 }
 
 // ------------
 // print matrix
 // ------------
-void print_matrix(vector<vector<int> > matrix){
+void print_matrix(ostream& w, vector<vector<int> > matrix){
 	for(unsigned int i = 0; i < matrix.size(); ++i){
 
 		for(unsigned int j = 0; j < matrix[i].size(); ++j){
 
-			cout << '(' << matrix[i][j] << ")";
+			w << '(' << matrix[i][j] << ")";
 
 		}
-		cout<< endl;
+		w << endl;
 	}
+}
+
+// -----------
+// print_queue
+// -----------
+void print_queue(ostream& w, priority_queue<int, vector<int>, greater<int> > pq){
+	int top_element = pq.top();
+
+	w << top_element << endl;
+
 }
 
 
@@ -71,7 +83,6 @@ void pfd_solve(istream& in, ostream& out){
 	assert(num_tasks <= 100);											// N <= 100
 
 	in >> num_rules;
-	assert(num_rules > 0);												//at least 1 rule for a task
 	assert(num_rules <= 100);											//cant have more rules than tasks
 	assert(num_rules < num_tasks);										// M <= 100
 
@@ -106,6 +117,7 @@ void pfd_solve(istream& in, ostream& out){
 
 		priority_queue<int, vector<int>, greater<int> > pq;
 
+
 		//SCANNING for which ROWS are full 0s, 
 		for(int row = 0; row < num_tasks; ++row){
 			bool flag = false;											//flag set to false if it hits a 1, then true
@@ -134,24 +146,23 @@ void pfd_solve(istream& in, ostream& out){
 			int replace = pq.top() - 1;
 
 			if(dummy == 1){
-				cout << pq.top();
+				out << pq.top();
 			} 
 			else{
-				cout << pq.top() << " ";
+				out << pq.top() << " ";
 			}	
 
 			pq.pop();
 
-			amatrix[replace][0] = 5;
+			for(int i = 0; i < num_tasks; ++i){
+				amatrix[replace][i] = 5;
+			}
+
 			//cout << endl;
-			//print_matrix(amatrix);
-			
-			//for(unsigned int i =0; i < pq.size(); ++i){
-			//		pq.pop();
-			//}
+			//print_matrix(out, amatrix);
+
 			dummy--;
 		}
 	//} print clear bracket
-
-	//print_matrix(amatrix);
+	//print_matrix(out, amatrix);
 }

@@ -81,7 +81,6 @@ void pfd_solve(istream& in, ostream& out){
 	assert(num_tasks <= 100);											// N <= 100
 
 	in >> num_rules;
-	assert(num_rules > 0);												//at least 1 rule for a task
 	assert(num_rules <= 100);											//cant have more rules than tasks
 	assert(num_rules < num_tasks);										// M <= 100
 
@@ -116,6 +115,7 @@ void pfd_solve(istream& in, ostream& out){
 
 		priority_queue<int, vector<int>, greater<int> > pq;
 
+
 		//SCANNING for which ROWS are full 0s, 
 		for(int row = 0; row < num_tasks; ++row){
 			bool flag = false;											//flag set to false if it hits a 1, then true
@@ -144,24 +144,23 @@ void pfd_solve(istream& in, ostream& out){
 			int replace = pq.top() - 1;
 
 			if(dummy == 1){
-				cout << pq.top();
+				out << pq.top();
 			} 
 			else{
-				cout << pq.top() << " ";
+				out << pq.top() << " ";
 			}	
 
 			pq.pop();
 
-			amatrix[replace][0] = 5;
+			for(int i = 0; i < num_tasks; ++i){
+				amatrix[replace][i] = 5;
+			}
+
 			//cout << endl;
-			//print_matrix(amatrix);
-			
-			//for(unsigned int i =0; i < pq.size(); ++i){
-			//		pq.pop();
-			//}
+			//print_matrix(out, amatrix);
+
 			dummy--;
 		}
 	//} print clear bracket
-
-	//print_matrix(amatrix);
+	//print_matrix(out, amatrix);
 }
