@@ -77,12 +77,12 @@ void pfd_solve(istream& in, ostream& out){
 	int num_rules;
 
 	in >> num_tasks;
-	assert(num_tasks > 0);
+	assert(num_tasks > 0);												//num of tasks > 0
 	assert(num_tasks <= 100);											// N <= 100
 
 	in >> num_rules;
-	assert(num_rules > 0);
-	assert(num_rules <= 100);	
+	assert(num_rules > 0);												//at least 1 rule for a task
+	assert(num_rules <= 100);											//cant have more rules than tasks
 	assert(num_rules < num_tasks);										// M <= 100
 
 	/* Data Structures */
@@ -94,17 +94,17 @@ void pfd_solve(istream& in, ostream& out){
 		in >> task_name;
 		assert(task_name <= num_tasks);	
 
-		/** check for no duplicate tasks **/
-		assert(find(check.begin(), check.end(), task_name) == check.end());
+		assert(find(check.begin(), check.end(), task_name) == check.end());		//checks our list of added tasks, cannot have duplicate tasks
 		check.push_back(task_name);
 
 		int num_pred;
 		in >> num_pred;
-		assert(num_pred < num_tasks);
+		assert(num_pred < num_tasks);											//a task cannot have more predecessors than there are tasks
 
 		for(int j = 0; j < num_pred; ++j){
 			int temp_pred;
 			in >> temp_pred;
+			assert(temp_pred <= num_tasks);										//cant have a predecessor thats larger than the total # of tasks N
 
 			amatrix[task_name-1][temp_pred-1] = 1;
 		}
@@ -155,10 +155,12 @@ void pfd_solve(istream& in, ostream& out){
 			amatrix[replace][0] = 5;
 			//cout << endl;
 			//print_matrix(amatrix);
-
+			
+			//for(unsigned int i =0; i < pq.size(); ++i){
+			//		pq.pop();
+			//}
 			dummy--;
 		}
-
 	//} print clear bracket
 
 	//print_matrix(amatrix);
