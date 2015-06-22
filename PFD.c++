@@ -51,7 +51,7 @@ template<typename T> void pfd_print(T& q){
 		q.pop();
 	}
 
-	cout << endl;
+	//cout << endl;
 }
 
 
@@ -95,30 +95,78 @@ void pfd_solve(istream& in, ostream& out){
 		in >> num_pred;
 		assert(num_pred > 0);
 
-		//cout << "this is the task for this line: " << task_name << endl;
-
-		//cout << "this is the number of predecessors for this task: " << num_pred << endl;
-
-
 		for(int j = 0; j < num_pred; ++j){
 
 			int temp_pred;
 			in >> temp_pred;
 
-			//cout << "The next predecessor: " << temp_pred << endl;
 			amatrix[task_name-1][temp_pred-1] = 1;
 		}
 	}
 	
 
-	/** GO THRU MATRIX, SCAN POP CLEAR **/
 
+	int dummy = num_tasks;
 
+	while(dummy > 0){
+
+		//SCANNING for which ROWS are full 0s, 
+		for(int row = 0; row < num_tasks; ++row){
+
+			bool flag = false;											//flag set to false if it hits a 1, then true
+
+			for(int column = 0; column < num_tasks; ++column){
+
+				if(amatrix[row][column] == 1 || amatrix[row][column] == 5){
+					flag = true;
+				}
+			}
+
+			if(flag == false){
+
+				int value = row + 1;
+
+				pq.push(value);
+			}
+
+		}
+
+		int size_of_pq = pq.size();
+
+		//CLEAR and POP and PRINT
+		for(int pq_size = 0; pq_size < size_of_pq; ++pq_size){
+
+			for(int i = 0; i < num_tasks; ++i){
+
+				int top_element = pq.top();		//grabs top element
+
+				top_element = top_element - 1;	//subtract 1 to make sure its looking at right column
+
+				amatrix[i][top_element] = 0;	//set that whole column to 0
+			}
+
+			int replace = pq.top() - 1;
+			cout << pq.top() << " ";
+			pq.pop();
+
+			//cout << "This is now the size of the pq: " << pq.size() << endl;
+
+			for(int j = 0; j < num_tasks; ++j){
+
+				amatrix[replace][j] = 5;
+			}
+
+			dummy--;
+		}
+
+		//cout << endl;
+	}
 
 
 
 	//print matrix
 	//when you are reading the matrix, dont froget to add one to the interation to get the correct task_name, i.e. int i = 0 is actually the task 0 + 1 = 1
+	/*
 	for(int c = 0; c < num_tasks; ++c){
 
 		for(int d = 0; d < num_tasks; ++d){
@@ -128,6 +176,7 @@ void pfd_solve(istream& in, ostream& out){
 		}
 		cout<< endl;
 	}
+	*/
 	
 
 }
