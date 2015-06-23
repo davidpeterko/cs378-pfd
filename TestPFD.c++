@@ -52,6 +52,45 @@ TEST(PFDFixture,matrix_fill_zero_1){
 	ASSERT_EQ("(0)(0)\n(0)(0)\n", w.str());
 }
 
+<<<<<<< HEAD
+=======
+TEST(PFDFixture,matrix_fill_zero_2){
+	ostringstream w;
+	vector<vector<int> > testmatrix(2, vector<int>(2)); 
+
+	for(int i = 0; i < 2; ++i){
+
+		for(int j = 0; j < 2; ++j){
+
+			testmatrix[i][j] = 2;
+		}
+	}
+
+	testmatrix = matrix_fill_zero(2, testmatrix);
+	print_matrix(w, testmatrix);
+
+	ASSERT_EQ("(0)(0)\n(0)(0)\n", w.str());
+}
+
+TEST(PFDFixture,matrix_fill_zero_3){
+	ostringstream w;
+	vector<vector<int> > testmatrix(2, vector<int>(2)); 
+
+	for(int i = 0; i < 2; ++i){
+
+		for(int j = 0; j < 2; ++j){
+
+			testmatrix[i][j] = 3;
+		}
+	}
+
+	testmatrix = matrix_fill_zero(2, testmatrix);
+	print_matrix(w, testmatrix);
+
+	ASSERT_EQ("(0)(0)\n(0)(0)\n", w.str());
+}
+
+>>>>>>> dev-branch
 // ---------
 // pfd_solve
 // ---------

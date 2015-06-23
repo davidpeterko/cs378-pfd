@@ -1,0 +1,90 @@
+commit 94b8ad7c077fdc95662f1b22ee55a4fd216fabd6
+Author: David Ko <davidko@cs.utexas.edu>
+Date:   Tue Jun 23 14:13:37 2015 -0500
+
+    Updated everything final project
+
+commit e579bc5287f1dfd0f5fdfa249555b8f46f0a8da9
+Author: david ko <davidpeterko@gmail.com>
+Date:   Tue Jun 23 14:15:08 2015 -0500
+
+    Fixed style to follow C Style Guide
+
+commit 5df4cb8f0d5f670074587b60e0a1079ea3e9ed0b
+Author: david ko <davidpeterko@gmail.com>
+Date:   Tue Jun 23 11:54:57 2015 -0500
+
+    Edited the headers of the files with our names.
+
+commit 7a95592deb5477e68e4278ed236806a142bb5924
+Author: david ko <davidpeterko@gmail.com>
+Date:   Tue Jun 23 11:51:12 2015 -0500
+
+    Removed TestPFD.gcno
+
+commit 2b874a32b352bb43b3298904e1919222cd0bad6f
+Author: david ko <davidpeterko@gmail.com>
+Date:   Tue Jun 23 11:47:05 2015 -0500
+
+    Added the .gitignore to repo
+
+commit fd658c7b3e03874052c2c49207edce5a021eeb4e
+Author: David Ko <davidko@cs.utexas.edu>
+Date:   Mon Jun 22 18:55:57 2015 -0500
+
+    Fixed #12, Sphere accepted. Fixed #15, got correct output. Fixed #17, priority now impemented correctly. Fixed #18, removed redundant code which now makes the time limit. Fixed #20, figured out the usage of a priority queue using the documentation.
+
+commit ce52bd30ee6b0ca4108f1d2d2d2b66ddb005a39e
+Author: david ko <davidpeterko@gmail.com>
+Date:   Mon Jun 22 07:04:09 2015 -0500
+
+    added new assert
+
+commit ae8f304dbd42050908bb58e1d523e282d2f5c36e
+Author: david ko <davidpeterko@gmail.com>
+Date:   Mon Jun 22 06:42:31 2015 -0500
+
+    Passed tests that i could find, but wont pass sphere.
+
+commit e40919ae8158d7f5be28e74f50379a74e0d60c9d
+Author: David Ko <davidko@cs.utexas.edu>
+Date:   Sun Jun 21 19:54:22 2015 -0500
+
+    Got a basic implementation workinggit add .git add .git add .git add .
+
+commit 5f8d0be1c3e24c494a4f59dfe28adf663af9164e
+Author: David Ko <davidko@cs.utexas.edu>
+Date:   Sun Jun 21 17:47:44 2015 -0500
+
+    got matrix filled, and working, now to input the logic for scan pop and clear.
+
+commit c9080d33e24ce0e5b2d94f7009f4b9fa72d13f80
+Merge: f9c022f f8b7876
+Author: David Ko <davidko@cs.utexas.edu>
+Date:   Sat Jun 20 20:45:13 2015 -0500
+
+    added master to dev-branch because github bugged out on me in the lab.
+
+commit f8b7876126b7dc4feabe43e8de8de3b71e186818
+Author: David Ko <davidko@cs.utexas.edu>
+Date:   Sat Jun 20 20:41:10 2015 -0500
+
+    Started the code. We have input completed, half of solve -> need to understand the logic behind the graph/nodes/edges/PQ
+
+commit f9c022f8417de0e22ca83775a5dc2a4de3149654
+Author: david ko <davidpeterko@gmail.com>
+Date:   Sat Jun 20 18:54:55 2015 -0500
+
+    added some functions
+
+commit 2076fb26b1c84b9fe7e103ada25026b15577d3b0
+Author: david ko <davidpeterko@gmail.com>
+Date:   Sat Jun 20 03:15:07 2015 -0500
+
+    Added a comment, pushing to dev-branch to check if Travis CI is synced with this project.
+
+commit df4432e689bb548ca64d3689f00457b3c781a559
+Author: david ko <davidpeterko@gmail.com>
+Date:   Sat Jun 20 03:11:46 2015 -0500
+
+    Made all the starter file skeletons and with correct names.
