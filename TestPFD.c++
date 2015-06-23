@@ -52,8 +52,6 @@ TEST(PFDFixture,matrix_fill_zero_1){
 	ASSERT_EQ("(0)(0)\n(0)(0)\n", w.str());
 }
 
-<<<<<<< HEAD
-=======
 TEST(PFDFixture,matrix_fill_zero_2){
 	ostringstream w;
 	vector<vector<int> > testmatrix(2, vector<int>(2)); 
@@ -90,7 +88,6 @@ TEST(PFDFixture,matrix_fill_zero_3){
 	ASSERT_EQ("(0)(0)\n(0)(0)\n", w.str());
 }
 
->>>>>>> dev-branch
 // ---------
 // pfd_solve
 // ---------
