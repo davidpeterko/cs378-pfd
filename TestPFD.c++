@@ -88,6 +88,7 @@ TEST(PFDFixture,matrix_fill_zero_3){
 	ASSERT_EQ("(0)(0)\n(0)(0)\n", w.str());
 }
 
+
 // ---------
 // pfd_solve
 // ---------
@@ -108,6 +109,8 @@ TEST(PFDFixture, solve3) {
     ostringstream w;
     pfd_solve(r, w);
     ASSERT_EQ("3 2 4 1", w.str());}
+
+
 // -----------
 // print_queue
 // -----------
@@ -175,6 +178,7 @@ TEST(PFDFixture, print5){
 
 	ASSERT_EQ("6\n", w.str());
 }
+
 
 // ------------
 // print_matrix
