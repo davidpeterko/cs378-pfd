@@ -2,6 +2,7 @@
 // cs378-pfd/PFD.c++
 // Copyright (C) 2015
 // David Peter Ko
+// Josh Gutierrez
 // ------------------
 
 // -------
