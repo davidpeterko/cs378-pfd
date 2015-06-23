@@ -78,12 +78,12 @@ void pfd_solve(istream& in, ostream& out){
 	int num_rules;
 
 	in >> num_tasks;
-	assert(num_tasks > 0);												//num of tasks > 0
-	assert(num_tasks <= 100);											// N <= 100
+	assert(num_tasks > 0);														//num of tasks > 0
+	assert(num_tasks <= 100);													// N <= 100
 
 	in >> num_rules;
-	assert(num_rules <= 100);											//cant have more rules than tasks
-	assert(num_rules < num_tasks);										// M <= 100
+	assert(num_rules <= 100);													//cant have more rules than tasks
+	assert(num_rules < num_tasks);												// M <= 100
 
 	/* Data Structures */
 	vector<vector<int> > amatrix(num_tasks, vector<int>(num_tasks)); 
@@ -119,7 +119,7 @@ void pfd_solve(istream& in, ostream& out){
 
 		//SCANNING for which ROWS are full 0s, 
 		for(int row = 0; row < num_tasks; ++row){
-			bool flag = false;											//flag set to false if it hits a 1, then true
+			bool flag = false;													//flag set to false if it hits a 1, then true
 
 			for(int column = 0; column < num_tasks; ++column){
 				if(amatrix[row][column] == 1 || amatrix[row][column] == 5){
@@ -133,35 +133,35 @@ void pfd_solve(istream& in, ostream& out){
 			}
 		}
 
-		//CLEAR and POP and PRINT
-		//for(unsigned int pq_size = 0; pq_size < pq.size(); ++pq_size){
 
-			for(int i = 0; i < num_tasks; ++i){
-				int top_element = pq.top();		//grabs top element
-				top_element = top_element - 1;	//subtract 1 to make sure its looking at right column
-				amatrix[i][top_element] = 0;	//set that whole column to 0
-			}
-
-			int replace = pq.top() - 1;
-
-			if(dummy == 1){
-				out << pq.top();
-			} 
-			else{
-				out << pq.top() << " ";
-			}	
-
-			pq.pop();
-
-			for(int i = 0; i < num_tasks; ++i){
-				amatrix[replace][i] = 5;
-			}
-
-			//cout << endl;
-			//print_matrix(out, amatrix);
-
-			dummy--;
+		for(int i = 0; i < num_tasks; ++i){
+			int top_element = pq.top();											//grabs top element
+			top_element = top_element - 1;										//subtract 1 to make sure its looking at right column
+			amatrix[i][top_element] = 0;										//set that whole column to 0
 		}
-	//} print clear bracket
+
+		int replace = pq.top() - 1;
+
+		if(dummy == 1){
+			out << pq.top();
+		} 
+		else{
+			out << pq.top() << " ";
+		}	
+
+		pq.pop();
+
+		for(int i = 0; i < num_tasks; ++i){
+			amatrix[replace][i] = 5;
+		}
+
+		/** debugging **/
+		//cout << endl;
+		//print_matrix(out, amatrix);
+
+		dummy--;
+		}
+
+	/** debugging**/
 	//print_matrix(out, amatrix);
 }
